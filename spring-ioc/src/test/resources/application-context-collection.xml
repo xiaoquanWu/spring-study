@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+    <bean id="collectionObject" class="org.xiaoquan.spring.aop.model.CollectionModel">
+        <!-- results in a setAdminEmails(java.util.Properties) call -->
+        <property name="properties">
+            <props>
+                <prop key="administrator">administrator@example.org</prop>
+                <prop key="support">support@example.org</prop>
+                <prop key="development">development@example.org</prop>
+            </props>
+        </property>
+        <!-- results in a setSomeList(java.util.List) call -->
+        <property name="someList">
+            <list>
+                <value>a list element followed by a reference</value>
+                <bean id="exampleBean" class="org.xiaoquan.spring.aop.model.ExampleBean">
+                    <constructor-arg name="yearsAlias" value="7500000"/>
+                    <constructor-arg name="ultimateAnswerAlias" value="42"/>
+                </bean>
+            </list>
+        </property>
+        <!-- results in a setSomeMap(java.util.Map) call -->
+        <property name="someMap">
+            <map>
+                <entry key="1" value="just some string 1"/>
+                <entry key="2" value="string 2"/>
+            </map>
+        </property>
+        <!-- results in a setSomeSet(java.util.Set) call -->
+        <property name="someSet">
+            <set>
+                <value>String</value>
+                <ref bean="configDao"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 集合的合并
+    <bean id="parent" abstract="true" class="example.ComplexObject">
+        <property name="adminEmails">
+            <props>
+                <prop key="administrator">administrator@example.com</prop>
+                <prop key="support">support@example.com</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="child" parent="parent">
+        <property name="adminEmails">
+            &lt;!&ndash; the merge is specified on the child collection definition &ndash;&gt;
+            <props merge="true">
+                <prop key="sales">sales@example.com</prop>
+                <prop key="support">support@example.co.uk</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+</beans>
