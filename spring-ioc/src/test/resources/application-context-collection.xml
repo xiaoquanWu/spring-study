@@ -4,6 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
+    <!-- 这个文件指导一些基本集合的注入方式-->
+
     <bean id="collectionObject" class="org.xiaoquan.spring.aop.model.CollectionModel">
         <!-- results in a setAdminEmails(java.util.Properties) call -->
         <property name="properties">

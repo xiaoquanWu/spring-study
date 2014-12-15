@@ -13,7 +13,10 @@
               </property>
        </bean>
 
-       <bean id="exampleBean" class="org.xiaoquan.spring.aop.model.ExampleBean">
+       <!-- 通常情况下对象的初始化是在容器启动时， 加上lazy-init之后，该对象将在第一被使用的时候初始化；
+            但是如果这个bean被其他的bean依赖，延迟初始化将不会起作用
+       -->
+       <bean id="exampleBean" class="org.xiaoquan.spring.aop.model.ExampleBean" lazy-init="true">
               <constructor-arg name="yearsAlias" value="7500000"/>
               <constructor-arg name="ultimateAnswerAlias" value="42"/>
        </bean>
