@@ -21,4 +21,29 @@
               <constructor-arg name="ultimateAnswerAlias" value="42"/>
        </bean>
 
+       <!--MyBeanManage 是实现了ApplicationContextAware接口的类，在该类中可以拿到ApplicationContext对象
+           但是这种方式将导致对象与spring耦合
+       -->
+       <bean id="commandManager" class="org.xiaoquan.spring.aop.model.CommandManager"></bean>
+
+       <!-- life cycle-->
+       <bean id="beanOfLifecycle" class="org.xiaoquan.spring.aop.model.BeanOfLifecycle"></bean>
+       <bean id="beanOfSmartLifecycle" class="org.xiaoquan.spring.aop.model.BeanOfSmartLifecycle"></bean>
+       <bean id="BeanOfSmartLifecycle02" class="org.xiaoquan.spring.aop.model.BeanOfSmartLifecycle02"></bean>
+       <bean id="lifecycleProcessor" class="org.springframework.context.support.DefaultLifecycleProcessor">
+              <!-- timeout value in milliseconds -->
+              <property name="timeoutPerShutdownPhase" value="3000"/>
+       </bean>
+
+       <!--对象继承-->
+       <bean id="inheritedTestBean" abstract="true" class="org.xiaoquan.spring.aop.model.TestBean">
+              <property name="name" value="parent"/>
+              <property name="age" value="1"/>
+       </bean>
+       <bean id="inheritsWithClass" class="org.xiaoquan.spring.aop.model.DerivedTestBean"
+             parent="inheritedTestBean" init-method="initialize">
+              <property name="name" value="override"/>
+              <!-- age will inherit the value of 1 from the parent bean definition-->
+       </bean>
+
 </beans>
