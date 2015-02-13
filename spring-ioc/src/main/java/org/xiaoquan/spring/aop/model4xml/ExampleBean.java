@@ -1,4 +1,4 @@
-package org.xiaoquan.spring.aop.model;
+package org.xiaoquan.spring.aop.model4xml;
 
 import java.beans.ConstructorProperties;
 

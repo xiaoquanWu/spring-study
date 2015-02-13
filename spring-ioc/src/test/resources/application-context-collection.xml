@@ -6,7 +6,7 @@
 
     <!-- 这个文件指导一些基本集合的注入方式-->
 
-    <bean id="collectionObject" class="org.xiaoquan.spring.aop.model.CollectionModel">
+    <bean id="collectionObject" class="org.xiaoquan.spring.aop.model4xml.CollectionModel">
         <!-- results in a setAdminEmails(java.util.Properties) call -->
         <property name="properties">
             <props>
@@ -19,7 +19,7 @@
         <property name="someList">
             <list>
                 <value>a list element followed by a reference</value>
-                <bean id="exampleBean" class="org.xiaoquan.spring.aop.model.ExampleBean">
+                <bean id="exampleBean" class="org.xiaoquan.spring.aop.model4xml.ExampleBean">
                     <constructor-arg name="yearsAlias" value="7500000"/>
                     <constructor-arg name="ultimateAnswerAlias" value="42"/>
                 </bean>

@@ -16,7 +16,7 @@
        <!-- 通常情况下对象的初始化是在容器启动时， 加上lazy-init之后，该对象将在第一被使用的时候初始化；
             但是如果这个bean被其他的bean依赖，延迟初始化将不会起作用
        -->
-       <bean id="exampleBean" class="org.xiaoquan.spring.aop.model.ExampleBean" lazy-init="true">
+       <bean id="exampleBean" class="org.xiaoquan.spring.aop.model4xml.ExampleBean" lazy-init="true">
               <constructor-arg name="yearsAlias" value="7500000"/>
               <constructor-arg name="ultimateAnswerAlias" value="42"/>
        </bean>
@@ -24,26 +24,29 @@
        <!--MyBeanManage 是实现了ApplicationContextAware接口的类，在该类中可以拿到ApplicationContext对象
            但是这种方式将导致对象与spring耦合
        -->
-       <bean id="commandManager" class="org.xiaoquan.spring.aop.model.CommandManager"></bean>
+       <bean id="commandManager" class="org.xiaoquan.spring.aop.model4xml.CommandManager"></bean>
 
        <!-- life cycle-->
-       <bean id="beanOfLifecycle" class="org.xiaoquan.spring.aop.model.BeanOfLifecycle"></bean>
-       <bean id="beanOfSmartLifecycle" class="org.xiaoquan.spring.aop.model.BeanOfSmartLifecycle"></bean>
-       <bean id="BeanOfSmartLifecycle02" class="org.xiaoquan.spring.aop.model.BeanOfSmartLifecycle02"></bean>
+       <bean id="beanOfLifecycle" class="org.xiaoquan.spring.aop.model4xml.BeanOfLifecycle"></bean>
+       <bean id="beanOfSmartLifecycle" class="org.xiaoquan.spring.aop.model4xml.BeanOfSmartLifecycle"></bean>
+       <bean id="BeanOfSmartLifecycle02" class="org.xiaoquan.spring.aop.model4xml.BeanOfSmartLifecycle02"></bean>
        <bean id="lifecycleProcessor" class="org.springframework.context.support.DefaultLifecycleProcessor">
               <!-- timeout value in milliseconds -->
               <property name="timeoutPerShutdownPhase" value="3000"/>
        </bean>
 
        <!--对象继承-->
-       <bean id="inheritedTestBean" abstract="true" class="org.xiaoquan.spring.aop.model.TestBean">
+       <bean id="inheritedTestBean" abstract="true" class="org.xiaoquan.spring.aop.model4xml.TestBean">
               <property name="name" value="parent"/>
               <property name="age" value="1"/>
        </bean>
-       <bean id="inheritsWithClass" class="org.xiaoquan.spring.aop.model.DerivedTestBean"
+       <bean id="inheritsWithClass" class="org.xiaoquan.spring.aop.model4xml.DerivedTestBean"
              parent="inheritedTestBean" init-method="initialize">
               <property name="name" value="override"/>
               <!-- age will inherit the value of 1 from the parent bean definition-->
        </bean>
+
+       <!--BeanPostProcessor-->
+       <bean id="beanPostProcessorDemo" class="org.xiaoquan.spring.aop.model4xml.BeanPostProcessorDemo"></bean>
 
 </beans>

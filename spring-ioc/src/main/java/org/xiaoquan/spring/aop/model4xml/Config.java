@@ -1,7 +1,6 @@
-package org.xiaoquan.spring.aop.model;
+package org.xiaoquan.spring.aop.model4xml;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * Created by XiaoQuan on 2014/12/14.

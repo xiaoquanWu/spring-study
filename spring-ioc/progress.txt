@@ -1,1 +1,2 @@
 2014-12-14 ： Part III. Core Technologies >> 5.4 before "XML shortcut with the p-namespace" 【page 47 (73/841)】
+2014-12-18 ： Part III. Core Technologies >> 5.9 before "Annotation-based container configuration" 【page 81 (107/841)】

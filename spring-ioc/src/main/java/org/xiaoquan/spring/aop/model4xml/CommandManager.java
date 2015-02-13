@@ -1,4 +1,4 @@
-package org.xiaoquan.spring.aop.model;
+package org.xiaoquan.spring.aop.model4xml;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

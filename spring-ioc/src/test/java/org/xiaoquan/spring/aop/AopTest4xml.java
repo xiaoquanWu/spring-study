@@ -5,16 +5,21 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.xiaoquan.spring.aop.model.BeanOfLifecycle;
-import org.xiaoquan.spring.aop.model.CollectionModel;
-import org.xiaoquan.spring.aop.model.ExampleBean;
-import org.xiaoquan.spring.aop.model.CommandManager;
+import org.xiaoquan.spring.aop.model4xml.BeanOfLifecycle;
+import org.xiaoquan.spring.aop.model4xml.CollectionModel;
+import org.xiaoquan.spring.aop.model4xml.ExampleBean;
+import org.xiaoquan.spring.aop.model4xml.CommandManager;
 import org.xiaoquan.spring.aop.service.ConfigService;
 
 /**
  * Unit test for simple App.
  */
-public class AopTest {
+public class AopTest4xml {
+
+    @Test
+    public void testInit() {
+        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
+    }
 
     @Test
     public void test01() {
